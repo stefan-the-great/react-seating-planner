@@ -2,27 +2,48 @@
     display: flex;
     justify-content: left;
     width: 100%;
+    background-color: rgb(153, 151, 151);
+    height: 100vh;
 }
 
 .table {
-    min-width: 150px;
+    min-width: 230px;
     min-height: 30vh;
     max-height: 60vh;
-    border: 0.5px solid black;
+    /* border: 0.5px solid black; */
     border-radius: 10px;
     margin: 30px;
-    display: grid;
-    grid-template-columns: auto;
-    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    /* justify-items: center; */
+    background-color: rgb(240, 240, 240);
+}
+
+.innerWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.peopleName {
+    height: 55vh;
     overflow-y: scroll;
     scroll-behavior: smooth;
 }
 
+.table::-webkit-scrollbar,
+.peopleName::-webkit-scrollbar {
+    display: none;
+}
+
 .nameList {
-    min-width: 150px;
+    min-width: 200px;
     height: min-content;
-    border: 0.5px solid rgba(0, 0, 0, 0.1);
+    /* border: 0.5px solid rgba(0, 0, 0, 0.1); */
     border-radius: 10px;
     margin: 30px;
     padding: 10px;
+    background-color: rgb(240, 240, 240);
 }

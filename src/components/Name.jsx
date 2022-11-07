@@ -14,7 +14,7 @@ function Name({id, name}) {
   return (
     <div className="nameCard"
         ref={drag} 
-        style={{border: isDragging ? "0.5px solid rgba(0, 0, 0, 0.5)" : "0px"}}>
+        style={{border: isDragging ? "0.5px solid rgba(0, 0, 0, 0.5)" : "0.5px solid rgba(0, 0, 0, 0)"}}>
         <div className='name'>{name}</div>
 
     </div>
