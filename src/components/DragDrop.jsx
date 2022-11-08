@@ -1,113 +1,72 @@
-// import React, { useState } from 'react';
+import React, { useState } from 'react';
 import Name from './Name';
-// import SelectedName from './SelectedName'
+import SelectedName from './SelectedName'
 // import { useDrop } from "react-dnd";
 import "../App.css";
 import Table from './Table';
 
 // const NameList = ["Chrismal", "Priyanka", "Chrishcale", "Kalum"]
-const nameList = [
-    {
-        id: 1,
-        name: "Chrismal Panditharatne",
-    },
-    {
-        id: 2,
-        name: "Priyanka Panditharatne",
-    },
-    {
-        id: 3,
-        name: "Chrischale Panditharatne",
-    },
-    {
-        id: 4,
-        name: "Kalum Panditharatne",
-    },
-]
+let allNames = [{ id: 0, name: "Chrismal Panditharatne", seated: false},
+{ id: 1, name: "Priyanka Panditharatne", seated: false},
+{ id: 2, name: "Chrischale Panditharatne", seated: false},
+{ id: 3, name: "Kalum Panditharatne", seated: false},
+{ id: 4, name: "Malka Panditharatne", seated: false},
+{ id: 5, name: "Katja Panditharatne", seated: false},
+{ id: 6, name: "Kaaya Panditharatne", seated: false},
+{ id: 7, name: "Madhusha Panditharatne", seated: false},
+{ id: 8, name: "Damian Fernando", seated: false},
+{ id: 9, name: "Sanduni Fernando", seated: false},
+{ id: 10, name: "Pearl Fonseka", seated: false},
+{ id: 11, name: "Asoka ", seated: false},
+{ id: 12, name: "Preenitha Gopallawa", seated: false},
+{ id: 13, name: "Sampath Siriwardhana", seated: false},
+{ id: 14, name: "Surakshi Siriwardhana", seated: false},
+{ id: 15, name: "Roshan Fernando", seated: false},
+{ id: 16, name: "Ishani Fernando", seated: false},
+{ id: 17, name: "Dilruk Panditharatne", seated: false},
+{ id: 18, name: "Rohini Panditharatne", seated: false},
+{ id: 19, name: "Chandana De Silva", seated: false},
+{ id: 20, name: "Induni De Silva", seated: false},
+{ id: 21, name: "Suranga Fonseka", seated: false},
+{ id: 22, name: "Priyanga Fonseka", seated: false},
+{ id: 23, name: "Himansu Wickramasinghe", seated: false},
+{ id: 24, name: "Sharmein Wickramasinghe", seated: false},
+{ id: 25, name: "Agraja Wickramasinghe", seated: false},
+{ id: 26, name: "Dulya Wickramasinghe", seated: false},
+{ id: 27, name: "Indika Wickramasinghe", seated: false},
+{ id: 28, name: "Susila Wickramasinghe", seated: false},
+];
 
+// const numTables = 10;
+// const allTables = Array(numTables);
 // const tableSize = 10;
 
 function DragDrop() {
 
-//     const [Table, setTable] = useState([]);
-//     const [Table2, setTable2] = useState([]);
-// //     const [nameList, updateNameList] = useState([
-// //     {
-// //         id: 1,
-// //         name: "Chrismal Panditharatne",
-// //     },
-// //     {
-// //         id: 2,
-// //         name: "Priyanka Panditharatne",
-// //     },
-// //     {
-// //         id: 3,
-// //         name: "Chrischale Panditharatne",
-// //     },
-// //     {
-// //         id: 4,
-// //         name: "Kalum Panditharatne",
-// //     },
-// // ])
-//     const [tableLength, setTableLength] = useState(0);
-//     const [tableLength2, setTableLength2] = useState(0);
-    
-//     const [{ isOver }, drop] = useDrop(() => ({
-//        accept: "text",
-//        drop: (item) => addNameToTable(item.id),
-//        collect: (monitor) => ({
-//             isOver: !!monitor.isOver(),
-//         }),
-//     }));
-    
-    
-//     const [{ isOver2 }, drop2] = useDrop(() => ({
-//        accept: "text",
-//        drop: (item) => addNameToTable2(item.id),
-//        collect: (monitor) => ({
-//             isOver2: !!monitor.isOver(),
-//         }),
-//     }));
-
-
-//     const addNameToTable = (id) => {    
-//         if (tableLength <= 4) {
-//             const namedList = nameList.filter((name) => id === name.id);
-
-
-//             setTable((table) => [...table, namedList[0]]);
-//             setTableLength(prvState => prvState + 1);
-//         }
-//     }
-    
-    
-//     const addNameToTable2 = (id) => {    
-//         if (tableLength2 <= 4) {
-//             const namedList = nameList.filter((name) => id === name.id);
-
-
-//             setTable2((table) => [...table, namedList[0]]);
-//             setTableLength2(prvState => prvState + 1);
-//         }
-//     }
-
+    let [nameList, setNameList] = useState(allNames);
 
   return (
-    <div>
+    <div className="outerWrapper">
         <div className="nameList">
             <div className="names">
-                {nameList.map(name => {
-                    return<Name id={name.id} name={name.name} />
+                {nameList.map((name, index) => {
+                    if (name.seated) {
+                        return<SelectedName key={name.id} id={name.id} name={name.name} />
+                        
+                    } else {
+                        console.log(name);
+                        return<Name key={name.id} id={name.id} name={name.name} />
+                    }
                 })}
             </div>
         </div>
 
         <div className="tables">
-            <Table nameList={nameList}/>
-            <Table nameList={nameList}/>
-            <Table nameList={nameList}/>
-            <Table nameList={nameList}/>
-            <Table nameList={nameList}/>
+            <Table nameList={nameList} setNameList={setNameList} allNames={allNames}/>
+            <Table nameList={nameList} setNameList={setNameList} allNames={allNames}/>
+            <Table nameList={nameList} setNameList={setNameList} allNames={allNames}/>
+            <Table nameList={nameList} setNameList={setNameList} allNames={allNames}/>
+            
             
         </div>
     </div>

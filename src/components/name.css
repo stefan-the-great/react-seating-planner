@@ -9,7 +9,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-align: left;
-    cursor: grab;
+    /* cursor: grab; */
 }
 
 .nameCard {
@@ -23,7 +23,7 @@
     margin: 10px 5px;
     padding: 10px 5px;
     text-align: left;
-    /* cursor: grab; */
+    cursor: grab;
     box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.5);
     background-color: #f8f8f8;
 }

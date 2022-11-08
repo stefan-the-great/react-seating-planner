@@ -5,8 +5,8 @@ function Name({name, index}) {
 
   return (
     <div className="nameCard"
-    style={{cursor: "default"}}>
-        <div className='name' style={{cursor: "default"}}>{index + 1} {name}</div>
+     style={{cursor: "default", background: "grey", color: "white"}}>
+        <div className='name'>{name}</div>
     </div>
     
   )
