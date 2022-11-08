@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import Name from './Name';
-import SelectedName from './SelectedName'
-// import { useDrop } from "react-dnd";
 import "../App.css";
 import Table from './Table';
 
-// const NameList = ["Chrismal", "Priyanka", "Chrishcale", "Kalum"]
 let allNames = [{ id: 0, name: "Chrismal Panditharatne", seated: false},
 { id: 1, name: "Priyanka Panditharatne", seated: false},
 { id: 2, name: "Chrischale Panditharatne", seated: false},
@@ -49,23 +46,22 @@ function DragDrop() {
     <div className="outerWrapper">
         <div className="nameList">
             <div className="names">
-                {nameList.map((name, index) => {
-                    if (name.seated) {
-                        return<SelectedName key={name.id} id={name.id} name={name.name} />
-                        
-                    } else {
-                        console.log(name);
-                        return<Name key={name.id} id={name.id} name={name.name} />
-                    }
+                {nameList.map((name) => {
+                    return <Name key={name.id} id={name.id} name={name.name} />
                 })}
             </div>
         </div>
 
         <div className="tables">
-            <Table nameList={nameList} setNameList={setNameList} allNames={allNames}/>
-            <Table nameList={nameList} setNameList={setNameList} allNames={allNames}/>
-            <Table nameList={nameList} setNameList={setNameList} allNames={allNames}/>
-            <Table nameList={nameList} setNameList={setNameList} allNames={allNames}/>
+            <Table nameList={nameList} setNameList={setNameList}/>
+            <Table nameList={nameList} setNameList={setNameList}/>
+            <Table nameList={nameList} setNameList={setNameList}/>
+            <Table nameList={nameList} setNameList={setNameList}/>
+            <Table nameList={nameList} setNameList={setNameList}/>
+            <Table nameList={nameList} setNameList={setNameList}/>
+            <Table nameList={nameList} setNameList={setNameList}/>
+            <Table nameList={nameList} setNameList={setNameList}/>
+            <Table nameList={nameList} setNameList={setNameList}/>
             
             
         </div>
