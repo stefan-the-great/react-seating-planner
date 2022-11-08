@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import Name from './Name';
-import SelectedName from './SelectedName'
-import { useDrop } from "react-dnd";
+// import SelectedName from './SelectedName'
+// import { useDrop } from "react-dnd";
 import "../App.css";
+import Table from './Table';
 
 // const NameList = ["Chrismal", "Priyanka", "Chrishcale", "Kalum"]
 const nameList = [
@@ -24,49 +25,71 @@ const nameList = [
     },
 ]
 
-const tableSize = 10;
+// const tableSize = 10;
 
 function DragDrop() {
 
-    const [Table, setTable] = useState([]);
-//     const [nameList, updateNameList] = useState([
-//     {
-//         id: 1,
-//         name: "Chrismal Panditharatne",
-//     },
-//     {
-//         id: 2,
-//         name: "Priyanka Panditharatne",
-//     },
-//     {
-//         id: 3,
-//         name: "Chrischale Panditharatne",
-//     },
-//     {
-//         id: 4,
-//         name: "Kalum Panditharatne",
-//     },
-// ])
-    const [tableLength, setTableLength] = useState(0);
+//     const [Table, setTable] = useState([]);
+//     const [Table2, setTable2] = useState([]);
+// //     const [nameList, updateNameList] = useState([
+// //     {
+// //         id: 1,
+// //         name: "Chrismal Panditharatne",
+// //     },
+// //     {
+// //         id: 2,
+// //         name: "Priyanka Panditharatne",
+// //     },
+// //     {
+// //         id: 3,
+// //         name: "Chrischale Panditharatne",
+// //     },
+// //     {
+// //         id: 4,
+// //         name: "Kalum Panditharatne",
+// //     },
+// // ])
+//     const [tableLength, setTableLength] = useState(0);
+//     const [tableLength2, setTableLength2] = useState(0);
     
-    const [{ isOver }, drop] = useDrop(() => ({
-       accept: "text",
-       drop: (item) => addNameToTable(item.id),
-       collect: (monitor) => ({
-            isOver: !!monitor.isOver(),
-        }),
-    }));
+//     const [{ isOver }, drop] = useDrop(() => ({
+//        accept: "text",
+//        drop: (item) => addNameToTable(item.id),
+//        collect: (monitor) => ({
+//             isOver: !!monitor.isOver(),
+//         }),
+//     }));
+    
+    
+//     const [{ isOver2 }, drop2] = useDrop(() => ({
+//        accept: "text",
+//        drop: (item) => addNameToTable2(item.id),
+//        collect: (monitor) => ({
+//             isOver2: !!monitor.isOver(),
+//         }),
+//     }));
 
 
-    const addNameToTable = (id) => {    
-        if (tableLength <= 4) {
-            const namedList = nameList.filter((name) => id === name.id);
+//     const addNameToTable = (id) => {    
+//         if (tableLength <= 4) {
+//             const namedList = nameList.filter((name) => id === name.id);
 
 
-            setTable((table) => [...table, namedList[0]]);
-            setTableLength(prvState => prvState + 1);
-        }
-    }
+//             setTable((table) => [...table, namedList[0]]);
+//             setTableLength(prvState => prvState + 1);
+//         }
+//     }
+    
+    
+//     const addNameToTable2 = (id) => {    
+//         if (tableLength2 <= 4) {
+//             const namedList = nameList.filter((name) => id === name.id);
+
+
+//             setTable2((table) => [...table, namedList[0]]);
+//             setTableLength2(prvState => prvState + 1);
+//         }
+//     }
 
 
   return (
@@ -76,22 +99,11 @@ function DragDrop() {
                 return<Name id={name.id} name={name.name} />
             })}
         </div>
-        <div className="table" 
-            ref={drop}
-            style={{boxShadow: isOver ? "0px 0px 10px 0px rgba(0, 0, 0, 0.5)" : "0px 0px 0px rgba(0, 0, 0, 0)"}}>
-            <div className="innerWrapper">
-                <div className="peopleNum">
-                    {tableLength}
-                </div>
-                <div className="peopleName">
-                {Table.slice(0, tableSize).map((name, index) => {
-                    return<SelectedName id={name.id} name={name.name} index={index} />
-                })}
-                </div>
-            </div>
-        </div>
+        
+        <Table nameList={nameList}/>
+        <Table nameList={nameList}/>
     </div>
   )
-}
+};
 
 export default DragDrop
