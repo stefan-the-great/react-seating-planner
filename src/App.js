@@ -5,11 +5,11 @@ import DragDrop from "./components/DragDrop.jsx"
 
 function App() {
   return (
-    <DndProvider backend={HTML5Backend}>
-      <div className="App">
-        <DragDrop />        
-      </div>
-    </DndProvider>
+    <div className="App">
+      <DndProvider backend={HTML5Backend}>
+          <DragDrop />        
+      </DndProvider>
+    </div>
 
   );
 }

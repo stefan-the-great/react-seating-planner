@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import SelectedName from './SelectedName';
+import Name from './Name';
+// import SelectedName from './SelectedName';
 import { useDrop } from "react-dnd";
 
 const tableSize = 10;
@@ -35,7 +36,6 @@ function Table({nameList}) {
         }),
     }));
 
-
     const addNameToTable = (id) => {    
         if (tableLength <= 4) {
             const namedList = nameList.filter((name) => id === name.id);
@@ -52,13 +52,24 @@ function Table({nameList}) {
         ref={drop}
         style={{boxShadow: isOver ? "0px 0px 10px 0px rgba(0, 0, 0, 0.5)" : "0px 0px 0px rgba(0, 0, 0, 0)"}}>
         <div className="innerWrapper">
-            <div className="peopleNum">
-                {tableLength}
-            </div>
+            {tableLength >= tableSize ? 
+                (<div className="peopleNum"
+                style={{color: "red"}}>
+                    {tableSize}
+                </div>) : 
+                (<div className="peopleNum"
+                style={{color: "green"}}>
+                    {tableLength}
+                </div>)}
+            
+            
             <div className="peopleName">
-            {Table.slice(0, tableSize).map((name, index) => {
-                return<SelectedName id={name.id} name={name.name} index={index} />
-            })}
+                {Table.slice(0, tableSize).map((name, index) => {
+                    return<Name id={name.id} name={name.name} />
+                })}
+                {/* {Table.slice(0, tableSize).map((name, index) => {
+                    return<SelectedName id={name.id} name={name.name} index={index} />
+                })} */}
             </div>
         </div>
     </div>

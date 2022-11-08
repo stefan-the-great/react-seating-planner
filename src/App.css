@@ -1,18 +1,31 @@
-.outerWrapper {
-    display: flex;
-    justify-content: left;
+.App {
+    /* display: flex;
+    justify-content: left; */
     width: 100%;
     background-color: rgb(153, 151, 151);
-    height: 100vh;
+    height: max-content;
+    background: linear-gradient(104deg, #3d34edad, #2d3e6738, #1b1270a6);
+}
+
+.tables {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto auto auto auto;
+    column-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    /* display: flex;
+    overflow-x: scroll;
+    padding: 5px;
+    background: linear-gradient(40deg, #3d34edad, #2d3e6738, #1b1270a6); */
 }
 
 .table {
-    min-width: 230px;
+    min-width: 240px;
     min-height: 30vh;
     max-height: 60vh;
     /* border: 0.5px solid black; */
     border-radius: 10px;
-    margin: 30px;
+    margin: 10px;
     display: flex;
     flex-direction: column;
     /* justify-items: center; */
@@ -27,23 +40,67 @@
     margin: 10px;
 }
 
+.peopleNum {
+    font-weight: bold;
+}
+
 .peopleName {
     height: 55vh;
     overflow-y: scroll;
     scroll-behavior: smooth;
 }
 
-.table::-webkit-scrollbar,
-.peopleName::-webkit-scrollbar {
-    display: none;
+.nameList {
+    width: fit-content;
+    padding: 20px;
 }
 
-.nameList {
-    min-width: 200px;
-    height: min-content;
+.names {
+    min-width: 220px;
+    width: fit-content;
+    height: max-content;
     /* border: 0.5px solid rgba(0, 0, 0, 0.1); */
     border-radius: 10px;
-    margin: 30px;
+    margin: 0px;
+    /* border: 20px solid transparent; */
     padding: 10px;
     background-color: rgb(240, 240, 240);
+}
+
+
+/* SCROLL BAR STYLES */
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 17px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: #3316d4b0;
+    position: absolute;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: rgba(34, 34, 34, 0.5);
+}
+
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(169, 181, 199, 0.5);
+}
+
+.table::-webkit-scrollbar,
+.tables::-webkit-scrollbar,
+.peopleName::-webkit-scrollbar {
+    display: none;
 }

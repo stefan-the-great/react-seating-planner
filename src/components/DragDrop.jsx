@@ -93,15 +93,23 @@ function DragDrop() {
 
 
   return (
-    <div className='outerWrapper'>
+    <div>
         <div className="nameList">
-            {nameList.map(name => {
-                return<Name id={name.id} name={name.name} />
-            })}
+            <div className="names">
+                {nameList.map(name => {
+                    return<Name id={name.id} name={name.name} />
+                })}
+            </div>
         </div>
-        
-        <Table nameList={nameList}/>
-        <Table nameList={nameList}/>
+
+        <div className="tables">
+            <Table nameList={nameList}/>
+            <Table nameList={nameList}/>
+            <Table nameList={nameList}/>
+            <Table nameList={nameList}/>
+            <Table nameList={nameList}/>
+            
+        </div>
     </div>
   )
 };
