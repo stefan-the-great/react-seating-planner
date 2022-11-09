@@ -35,6 +35,7 @@ function AddTable({ setAllTables, nameList, setNameList}) {
                 </svg>
             </div>
             <div className="addTableBtnLable">New Table</div>
+            
         </div>
     </div>
   )

@@ -1,5 +1,5 @@
 import React from 'react';
-import "./name.css";
+import "../styles/name.css";
 import { useDrag } from "react-dnd";
 
 function Name({id, name}) {
@@ -11,6 +11,10 @@ function Name({id, name}) {
             isDragging: !!monitor.isDragging(),
         }),
     }));
+
+    // useEffect(() => {
+    //   console.log(id, name);
+    // }, [isDragging])
   return (
     <div className="nameCard"
         ref={drag} 
