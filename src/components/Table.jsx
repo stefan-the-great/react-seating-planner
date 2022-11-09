@@ -35,11 +35,11 @@ function Table({tableKey, nameList, setNameList, tableNum, tableData, setAllTabl
   return (
     <div className="table" 
         ref={tableLength < tableSize ? drop : null}
-        style={{boxShadow: isOver ? "0px 0px 10px 0px rgba(0, 0, 0, 0.5)" : "0px 0px 0px rgba(0, 0, 0, 0)"}}>
+        style={{boxShadow: isOver ? "inset 0px 0px 5px 1px rgba(255, 255, 255, 1)" : "0px 0px 0px rgba(0, 0, 0, 0)"}}>
         <div className="innerWrapper">
             <div className="tableDetails">
                 <div className="tableName">Table {tableNum}</div>
-                <div className="peopleNum" style={{color: tableLength >= tableSize ? "red" :"green"}}>
+                <div className="peopleNum" style={{color: tableLength >= tableSize ? "red" :"limegreen"}}>
                     {tableLength}
                 </div>
             </div>

@@ -29,12 +29,12 @@
 }
 
 .tableName {
-    color: #333333b3;
+    color: dimgray;
 }
 
 .tableName,
 .peopleNum {
-    font-weight: bold;
+    font-weight: 500;
     padding: 0px 15px;
 }
 
