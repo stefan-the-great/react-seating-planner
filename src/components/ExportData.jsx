@@ -1,8 +1,15 @@
-import React from 'react'
+import React from 'react';
+import "../styles/exportData.css"
 
-function ExportData() {
+function ExportData({allTables}) {
+
+  const exportData = () => {
+      console.log(allTables);
+  };
   return (
-    <div>ExportData</div>
+    <div className="exportData">
+        <button className="exportBtn" onClick={exportData}>Save</button>
+    </div>
   )
 }
 

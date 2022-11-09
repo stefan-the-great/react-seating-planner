@@ -3,6 +3,7 @@ import Name from './Name';
 import "../styles/App.css";
 import Table from './Table';
 import AddTable from './AddTable';
+import ExportData from './ExportData';
 
 let allNames = [{ id: 10, name: "Pearl Fonseka", seated: false},
 { id: 11, name: "Asoka ", seated: false},
@@ -42,9 +43,7 @@ function DragDrop() {
 { id: 9, name: "Sanduni Fernando", seated: false},
         ]]);
 
-    const exportData = () => {
-        console.log(allTables);
-    };
+
     
     useEffect(() => {
       console.log(allTables[0].length);
@@ -64,9 +63,8 @@ function DragDrop() {
 
 
         <div className="right">
-            <div className="exportData">
-                <button onClick={exportData} style={{width: "200px"}}>Export Data</button>
-            </div>
+            <ExportData allTables={allTables}/>
+            
             <div className="tables">
                 {allTables.map((table, index) => {
                     return <Table key={index} 
@@ -75,7 +73,6 @@ function DragDrop() {
                         setNameList={setNameList} 
                         tableNum={index + 1} 
                         tableData={table}
-                        allTables={allTables}
                         setAllTables={setAllTables} />
                 })}
                 
