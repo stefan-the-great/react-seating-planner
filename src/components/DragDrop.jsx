@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Name from './Name';
 import "../App.css";
 import Table from './Table';
+import AddTable from './AddTable';
 
 let allNames = [{ id: 0, name: "Chrismal Panditharatne", seated: false},
 { id: 1, name: "Priyanka Panditharatne", seated: false},
@@ -34,13 +35,11 @@ let allNames = [{ id: 0, name: "Chrismal Panditharatne", seated: false},
 { id: 28, name: "Susila Wickramasinghe", seated: false},
 ];
 
-// const numTables = 10;
-// const allTables = Array(numTables);
-// const tableSize = 10;
-
 function DragDrop() {
 
     let [nameList, setNameList] = useState(allNames);
+    let [allTables, setAllTables] = useState([""]);
+
 
   return (
     <div className="outerWrapper">
@@ -52,16 +51,15 @@ function DragDrop() {
             </div>
         </div>
 
+
         <div className="tables">
-            <Table nameList={nameList} setNameList={setNameList}/>
-            <Table nameList={nameList} setNameList={setNameList}/>
-            <Table nameList={nameList} setNameList={setNameList}/>
-            <Table nameList={nameList} setNameList={setNameList}/>
-            <Table nameList={nameList} setNameList={setNameList}/>
-            <Table nameList={nameList} setNameList={setNameList}/>
-            <Table nameList={nameList} setNameList={setNameList}/>
-            <Table nameList={nameList} setNameList={setNameList}/>
-            <Table nameList={nameList} setNameList={setNameList}/>
+            {allTables.map((table, index) => {
+                return <Table key={index} nameList={nameList} setNameList={setNameList}/>
+            })}
+            
+            <AddTable allTables={allTables} setAllTables={setAllTables} />
+
+            
             
             
         </div>

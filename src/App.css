@@ -2,20 +2,21 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: rgb(153, 151, 151);
+    /* background-color: rgb(153, 151, 151); */
     height: max-content;
     /* background: linear-gradient(104deg, #3d34edad, #2d3e6738, #1b1270a6); */
-    background-color: #ff99ff;
-    background-image: radial-gradient(at 86% 61%, hsla(344, 71%, 76%, 1) 0px, transparent 50%), radial-gradient(at 71% 1%, hsla(38, 71%, 60%, 1) 0px, transparent 50%), radial-gradient(at 21% 85%, hsla(237, 70%, 70%, 1) 0px, transparent 50%), radial-gradient(at 35% 84%, hsla(58, 82%, 66%, 1) 0px, transparent 50%), radial-gradient(at 24% 37%, hsla(155, 73%, 73%, 1) 0px, transparent 50%), radial-gradient(at 4% 32%, hsla(349, 91%, 73%, 1) 0px, transparent 50%), radial-gradient(at 57% 41%, hsla(325, 84%, 72%, 1) 0px, transparent 50%);
+    /* background-color: #ff99ff;
+    background-image: radial-gradient(at 86% 61%, hsla(344, 71%, 76%, 1) 0px, transparent 50%), radial-gradient(at 71% 1%, hsla(38, 71%, 60%, 1) 0px, transparent 50%), radial-gradient(at 21% 85%, hsla(237, 70%, 70%, 1) 0px, transparent 50%), radial-gradient(at 35% 84%, hsla(58, 82%, 66%, 1) 0px, transparent 50%), radial-gradient(at 24% 37%, hsla(155, 73%, 73%, 1) 0px, transparent 50%), radial-gradient(at 4% 32%, hsla(349, 91%, 73%, 1) 0px, transparent 50%), radial-gradient(at 57% 41%, hsla(325, 84%, 72%, 1) 0px, transparent 50%); */
 }
 
 .tables {
     flex: 5fr;
     width: 100vw;
-    max-height: 100vh;
+    max-height: 90vh;
     overflow-y: scroll;
     display: grid;
     column-gap: 10px;
+    margin-top: 10px;
     /* grid-template-columns: repeat(4, 1fr); */
     grid-template-columns: repeat(auto-fit, 240px);
     overflow-x: hidden;
@@ -37,6 +38,10 @@
     align-items: center;
     justify-content: center;
     margin: 10px;
+}
+
+.center {
+    height: 100%;
 }
 
 .peopleNum {
@@ -68,6 +73,16 @@
     overflow-y: scroll;
 }
 
+.addTableBtn {
+    cursor: pointer;
+    height: fit-content;
+    width: fit-content;
+}
+
+.addTableBtn path:hover {
+    fill: dimgray;
+}
+
 
 /* SCROLL BAR STYLES */
 
@@ -76,14 +91,16 @@
 
 ::-webkit-scrollbar {
     width: 17px;
+    border-radius: 5px;
 }
 
 
 /* Track */
 
 ::-webkit-scrollbar-track {
-    background: #3316d4b0;
-    position: absolute;
+    background: transparent;
+    box-shadow: inset 0px 5px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
 }
 
 
@@ -91,13 +108,15 @@
 
 ::-webkit-scrollbar-thumb {
     background: rgba(34, 34, 34, 0.5);
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 5px 0px rgb(255, 255, 255);
 }
 
 
 /* Handle on hover */
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(169, 181, 199, 0.5);
+    background: rgba(34, 34, 34, 0.7);
 }
 
 .table::-webkit-scrollbar,

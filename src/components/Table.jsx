@@ -30,8 +30,7 @@ function Table({nameList, setNameList}) {
   return (
     <div className="table" 
         ref={tableLength < tableSize ? drop : null}
-        style={{boxShadow: isOver ? "0px 0px 10px 0px rgba(0, 0, 0, 0.5)" : "0px 0px 0px rgba(0, 0, 0, 0)"} &&
-            {background: tableLength >= tableSize ? "rgba(253, 152, 152, 0.5)" : "240, 240, 240, 0.5"}}>
+        style={{boxShadow: isOver ? "0px 0px 10px 0px rgba(0, 0, 0, 0.5)" : "0px 0px 0px rgba(0, 0, 0, 0)"}}>
         <div className="innerWrapper">
             {tableLength >= tableSize ? 
                 (<div className="peopleNum"
