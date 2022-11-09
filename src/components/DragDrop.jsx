@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Name from './Name';
 import "../styles/App.css";
 import Table from './Table';
@@ -45,6 +45,11 @@ function DragDrop() {
     const exportData = () => {
         console.log(allTables);
     };
+    
+    useEffect(() => {
+      console.log(allTables);
+    }, [allTables]);
+    
 
 
   return (

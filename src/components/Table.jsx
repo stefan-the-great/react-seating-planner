@@ -19,12 +19,25 @@ function Table({tableKey, nameList, setNameList, tableNum, tableData, allTables,
 
     const addNameToTable = (id) => {    
         const namedList = nameList.filter((name) => id === name.id);
+        // const currTable = allTables.filter((table, index) => index === tableKey);
+        
+        // currTable[0].push(namedList[0]);
+        // console.log(allTables);
 
-        console.log(allTables.filter());
+
+        // console.log(allTables.filter((table, index) => index !== tableKey));
 
         setTable((table) => [...table, namedList[0]]);
-        
         setNameList(list => list.filter((name) => id !== name.id));
+        // setAllTables((table) => [...table, table[tableKey]]);
+        setAllTables(table => {
+            // console.log(table[tableKey]);
+            table[tableKey] = [...table[tableKey], namedList[0]];
+            return table
+        });
+
+        console.log(allTables);
+
     }
  
   return (
