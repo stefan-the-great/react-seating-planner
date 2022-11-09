@@ -1,0 +1,45 @@
+.table {
+    width: 240px;
+    max-height: 60vh;
+    min-height: 60vh;
+    border-radius: 10px;
+    /* margin: 10px; */
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(240, 240, 240, 0.5);
+}
+
+.innerWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.center {
+    height: 100%;
+}
+
+.tableDetails {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.tableName {
+    color: #333333b3;
+}
+
+.tableName,
+.peopleNum {
+    font-weight: bold;
+    padding: 0px 15px;
+}
+
+.peopleName {
+    height: 54vh;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
