@@ -1,20 +1,10 @@
 import React, { useState } from 'react';
 import Name from './Name';
-import "../App.css";
+import "../styles/App.css";
 import Table from './Table';
 import AddTable from './AddTable';
 
-let allNames = [{ id: 0, name: "Chrismal Panditharatne", seated: false},
-{ id: 1, name: "Priyanka Panditharatne", seated: false},
-{ id: 2, name: "Chrischale Panditharatne", seated: false},
-{ id: 3, name: "Kalum Panditharatne", seated: false},
-{ id: 4, name: "Malka Panditharatne", seated: false},
-{ id: 5, name: "Katja Panditharatne", seated: false},
-{ id: 6, name: "Kaaya Panditharatne", seated: false},
-{ id: 7, name: "Madhusha Panditharatne", seated: false},
-{ id: 8, name: "Damian Fernando", seated: false},
-{ id: 9, name: "Sanduni Fernando", seated: false},
-{ id: 10, name: "Pearl Fonseka", seated: false},
+let allNames = [{ id: 10, name: "Pearl Fonseka", seated: false},
 { id: 11, name: "Asoka ", seated: false},
 { id: 12, name: "Preenitha Gopallawa", seated: false},
 { id: 13, name: "Sampath Siriwardhana", seated: false},
@@ -38,7 +28,23 @@ let allNames = [{ id: 0, name: "Chrismal Panditharatne", seated: false},
 function DragDrop() {
 
     let [nameList, setNameList] = useState(allNames);
-    let [allTables, setAllTables] = useState([""]);
+    let [allTables, setAllTables] = useState([
+        [{ id: 0, name: "Chrismal Panditharatne", seated: false},
+{ id: 1, name: "Priyanka Panditharatne", seated: false},
+{ id: 2, name: "Chrischale Panditharatne", seated: false}
+        ], 
+        [{ id: 3, name: "Kalum Panditharatne", seated: false},
+{ id: 4, name: "Malka Panditharatne", seated: false},
+{ id: 5, name: "Katja Panditharatne", seated: false},
+{ id: 6, name: "Kaaya Panditharatne", seated: false},
+{ id: 7, name: "Madhusha Panditharatne", seated: false},
+{ id: 8, name: "Damian Fernando", seated: false},
+{ id: 9, name: "Sanduni Fernando", seated: false},
+        ]]);
+
+    const exportData = () => {
+        console.log(allTables);
+    };
 
 
   return (
@@ -52,16 +58,25 @@ function DragDrop() {
         </div>
 
 
-        <div className="tables">
-            {allTables.map((table, index) => {
-                return <Table key={index} nameList={nameList} setNameList={setNameList}/>
-            })}
-            
-            <AddTable allTables={allTables} setAllTables={setAllTables} />
+        <div className="right">
+            <div className="exportData">
+                <button onClick={exportData} style={{width: "200px"}}>Export Data</button>
+            </div>
+            <div className="tables">
+                {allTables.map((table, index) => {
+                    return <Table key={index} 
+                        tableKey={index} 
+                        nameList={nameList} 
+                        setNameList={setNameList} 
+                        tableNum={index + 1} 
+                        tableData={table}
+                        allTables={allTables}
+                        setAllTables={setAllTables} />
+                })}
+                
+                <AddTable nameList={nameList} setNameList={setNameList} setAllTables={setAllTables} />
 
-            
-            
-            
+            </div>
         </div>
     </div>
   )

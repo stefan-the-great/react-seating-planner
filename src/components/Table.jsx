@@ -1,14 +1,13 @@
-import React, {useState } from 'react';
-import Name from './Name';
-// import SelectedName from './SelectedName';
+import React, { useState } from 'react';
 import { useDrop } from "react-dnd";
+import Name from './Name';
+import "../styles/table.css"
 
 const tableSize = 10;
 
-function Table({nameList, setNameList}) {
+function Table({tableKey, nameList, setNameList, tableNum, tableData, allTables, setAllTables}) {
 
-    const [Table, setTable] = useState([]);
-    const [tableLength, setTableLength] = useState(0);
+    const [Table, setTable] = useState(tableData);
     
     const [{ isOver }, drop] = useDrop(() => ({
        accept: "text",
@@ -18,33 +17,30 @@ function Table({nameList, setNameList}) {
         }),
     }));
 
-
     const addNameToTable = (id) => {    
         const namedList = nameList.filter((name) => id === name.id);
 
+        console.log(allTables.filter());
+
         setTable((table) => [...table, namedList[0]]);
-        setTableLength(prvState => prvState + 1);
+        
         setNameList(list => list.filter((name) => id !== name.id));
     }
  
   return (
     <div className="table" 
-        ref={tableLength < tableSize ? drop : null}
+        ref={Table.length < tableSize ? drop : null}
         style={{boxShadow: isOver ? "0px 0px 10px 0px rgba(0, 0, 0, 0.5)" : "0px 0px 0px rgba(0, 0, 0, 0)"}}>
         <div className="innerWrapper">
-            {tableLength >= tableSize ? 
-                (<div className="peopleNum"
-                style={{color: "red"}}>
-                    {tableSize}
-                </div>) : 
-                (<div className="peopleNum"
-                style={{color: "green"}}>
-                    {tableLength}
-                </div>)}
-            
+            <div className="tableDetails">
+                <div className="tableName">Table {tableNum}</div>
+                <div className="peopleNum" style={{color: Table.length >= tableSize ? "red" :"green"}}>
+                    {Table.length}
+                </div>
+            </div>
             
             <div className="peopleName">
-                {Table.slice(0, tableSize).map((name, index) => {
+                {Table.map((name, index) => {
                     return<Name key={index} id={name.id} name={name.name} />
                 })}
             </div>
