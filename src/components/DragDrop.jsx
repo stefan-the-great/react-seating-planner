@@ -47,7 +47,7 @@ function DragDrop() {
     };
     
     useEffect(() => {
-      console.log(allTables);
+      console.log(allTables[0].length);
     }, [allTables]);
     
 
