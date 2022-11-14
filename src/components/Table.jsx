@@ -22,6 +22,14 @@ function Table({tableKey, nameList, setNameList, tableData, allTables, setAllTab
         let person = nameList.filter((name) => id === name.id);
         console.log("Person: ", person.length);
 
+        if (person.length === 0) {
+            // console.log(allTables);
+            person = allTables.filter((table, index) => findPerson(table, index, id));
+            person = person[1];
+            console.log("Person allTableFilter: ", person);
+        }
+
+
         // Removing person from nameList state and adding it to allTables 
         setNameList(list => list.filter((name) => id !== name.id));
         setAllTables(table => {
@@ -29,6 +37,15 @@ function Table({tableKey, nameList, setNameList, tableData, allTables, setAllTab
             return table
         });
     }
+
+    const findPerson = (table, index, id) => {
+        console.log("--- findPerson ---");
+        console.log(index);
+        console.log(id);
+        console.log(table);
+        let foundPerson = table.filter((name) => id === name.id);
+        return foundPerson;
+    };
 
  
   return (
