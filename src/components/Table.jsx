@@ -5,7 +5,7 @@ import "../styles/table.css"
 
 const tableSize = 10;
 
-function Table({tableKey, nameList, setNameList, tableNum, tableData, setAllTables}) {
+function Table({tableKey, nameList, setNameList, tableData, allTables, setAllTables}) {
 
     const tableLength = tableData.length
     
@@ -18,14 +18,18 @@ function Table({tableKey, nameList, setNameList, tableNum, tableData, setAllTabl
     }));
 
     const addNameToTable = (id) => {    
-        const namedList = nameList.filter((name) => id === name.id);
+        // Get person by name.id
+        let person = nameList.filter((name) => id === name.id);
+        console.log("Person: ", person.length);
 
+        // Removing person from nameList state and adding it to allTables 
         setNameList(list => list.filter((name) => id !== name.id));
         setAllTables(table => {
-            table[tableKey] = [...table[tableKey], namedList[0]];
+            table[tableKey] = [...table[tableKey], person[0]];
             return table
         });
     }
+
  
   return (
     <div className="table" 
@@ -33,15 +37,16 @@ function Table({tableKey, nameList, setNameList, tableNum, tableData, setAllTabl
         style={{boxShadow: isOver ? "inset 0px 0px 5px 1px rgba(255, 255, 255, 1)" : "0px 0px 0px rgba(0, 0, 0, 0)"}}>
         <div className="innerWrapper">
             <div className="tableDetails">
-                <div className="tableName">Table {tableNum}</div>
+                <div className="tableName">Table {tableKey + 1}</div>
                 <div className="peopleNum" style={{color: tableLength >= tableSize ? "red" :"limegreen"}}>
                     {tableLength}
                 </div>
             </div>
             
             <div className="peopleName">
+                {console.log("Table Num: ", tableKey + 1)}
                 {tableData.map((name, index) => {
-                    console.log(name.id);
+                    console.log(name);
                     return<Name key={index} id={name.id} name={name.name} />
                 })}
             </div>

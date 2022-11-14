@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Name from './Name';
 import "../styles/App.css";
 import Table from './Table';
 import AddTable from './AddTable';
 import ExportData from './ExportData';
 
-let allNames = [{ id: 0, name: "Chrismal Panditharatne", seated: false},
-{ id: 1, name: "Priyanka Panditharatne", seated: false},
-{ id: 2, name: "Chrischale Panditharatne", seated: false},
+let allNames = [
 { id: 3, name: "Kalum Panditharatne", seated: false},
 { id: 4, name: "Malka Panditharatne", seated: false},
 { id: 5, name: "Katja Panditharatne", seated: false},
@@ -38,14 +36,16 @@ let allNames = [{ id: 0, name: "Chrismal Panditharatne", seated: false},
 
 function DragDrop() {
 
-    let [nameList, setNameList] = useState(allNames);
-    let [allTables, setAllTables] = useState([[]]);
+    const [nameList, setNameList] = useState(allNames);
+    const [allTables, setAllTables] = useState([[{ id: 0, name: "Chrismal Panditharatne", seated: false},
+{ id: 1, name: "Priyanka Panditharatne", seated: false},
+{ id: 2, name: "Chrischale Panditharatne", seated: false}]]);
 
 
     
-    useEffect(() => {
-      console.log(allTables[0].length);
-    }, [allTables]);
+    // useEffect(() => {
+    //   console.log(allTables[0].length);
+    // }, [allTables]);
     
 
 
@@ -68,9 +68,9 @@ function DragDrop() {
                     return <Table key={index} 
                         tableKey={index} 
                         nameList={nameList} 
-                        setNameList={setNameList} 
-                        tableNum={index + 1} 
+                        setNameList={setNameList}
                         tableData={table}
+                        allTables={allTables}
                         setAllTables={setAllTables} />
                 })}
                 
