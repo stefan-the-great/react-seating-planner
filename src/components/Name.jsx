@@ -12,9 +12,6 @@ function Name({id, name}) {
         }),
     }));
 
-    // useEffect(() => {
-    //   console.log(id, name);
-    // }, [isDragging])
   return (
     <div className="nameCard"
         ref={drag} 

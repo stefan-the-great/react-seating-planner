@@ -5,7 +5,17 @@ import Table from './Table';
 import AddTable from './AddTable';
 import ExportData from './ExportData';
 
-let allNames = [{ id: 10, name: "Pearl Fonseka", seated: false},
+let allNames = [{ id: 0, name: "Chrismal Panditharatne", seated: false},
+{ id: 1, name: "Priyanka Panditharatne", seated: false},
+{ id: 2, name: "Chrischale Panditharatne", seated: false},
+{ id: 3, name: "Kalum Panditharatne", seated: false},
+{ id: 4, name: "Malka Panditharatne", seated: false},
+{ id: 5, name: "Katja Panditharatne", seated: false},
+{ id: 6, name: "Kaaya Panditharatne", seated: false},
+{ id: 7, name: "Madhusha Panditharatne", seated: false},
+{ id: 8, name: "Damian Fernando", seated: false},
+{ id: 9, name: "Sanduni Fernando", seated: false},
+{ id: 10, name: "Pearl Fonseka", seated: false},
 { id: 11, name: "Asoka ", seated: false},
 { id: 12, name: "Preenitha Gopallawa", seated: false},
 { id: 13, name: "Sampath Siriwardhana", seated: false},
@@ -29,19 +39,7 @@ let allNames = [{ id: 10, name: "Pearl Fonseka", seated: false},
 function DragDrop() {
 
     let [nameList, setNameList] = useState(allNames);
-    let [allTables, setAllTables] = useState([
-        [{ id: 0, name: "Chrismal Panditharatne", seated: false},
-{ id: 1, name: "Priyanka Panditharatne", seated: false},
-{ id: 2, name: "Chrischale Panditharatne", seated: false}
-        ], 
-        [{ id: 3, name: "Kalum Panditharatne", seated: false},
-{ id: 4, name: "Malka Panditharatne", seated: false},
-{ id: 5, name: "Katja Panditharatne", seated: false},
-{ id: 6, name: "Kaaya Panditharatne", seated: false},
-{ id: 7, name: "Madhusha Panditharatne", seated: false},
-{ id: 8, name: "Damian Fernando", seated: false},
-{ id: 9, name: "Sanduni Fernando", seated: false},
-        ]]);
+    let [allTables, setAllTables] = useState([[]]);
 
 
     
