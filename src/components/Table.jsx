@@ -1,7 +1,8 @@
 import React from 'react';
 import { useDrop } from "react-dnd";
-import Name from './Name';
+// import Name from './Name';
 import "../styles/table.css"
+import SelectedName from './SelectedName';
 
 const tableSize = 10;
 
@@ -24,9 +25,9 @@ function Table({tableKey, nameList, setNameList, tableData, allTables, setAllTab
 
         if (person.length === 0) {
             // console.log(allTables);
-            person = allTables.filter((table, index) => findPerson(table, index, id));
+            person = allTables.filter((table, index) => (findPerson(table, index, id)));
             person = person[1];
-            console.log("Person allTableFilter: ", person);
+            console.log("Person allTableFilter: ", person[0]);
         }
 
 
@@ -62,9 +63,9 @@ function Table({tableKey, nameList, setNameList, tableData, allTables, setAllTab
             
             <div className="peopleName">
                 {console.log("Table Num: ", tableKey + 1)}
+                {console.log(tableData)}
                 {tableData.map((name, index) => {
-                    console.log(name);
-                    return<Name key={index} id={name.id} name={name.name} />
+                    return<SelectedName key={index} id={name.id} name={name.name} />
                 })}
             </div>
         </div>
