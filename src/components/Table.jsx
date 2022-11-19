@@ -1,7 +1,8 @@
 import React from 'react';
 import { useDrop } from "react-dnd";
-import Name from './Name';
+// import Name from './Name';
 import "../styles/table.css"
+import SelectedName from './SelectedName';
 
 const tableSize = 10;
 
@@ -20,7 +21,6 @@ function Table({tableKey, nameList, setNameList, tableData, allTables, setAllTab
     const addNameToTable = (id) => {    
         // Get person by name.id
         let person = nameList.filter((name) => id === name.id);
-        console.log("Person: ", person.length);
 
         // Removing person from nameList state and adding it to allTables 
         setNameList(list => list.filter((name) => id !== name.id));
@@ -28,6 +28,21 @@ function Table({tableKey, nameList, setNameList, tableData, allTables, setAllTab
             table[tableKey] = [...table[tableKey], person[0]];
             return table
         });
+    }
+
+    // removeFromTable is used in SelectedName component 
+    const removeFromTable = (id) => {
+        // Step 01
+        // Find the person from the table
+        let person = allTables[tableKey].filter((name) => id === name.id);
+        
+        // Add person to nameList (list on the screen left)
+        setNameList(list => [...list, person[0]]);
+        
+        // Find and Remove the person from the current table
+        setAllTables(table => {
+            table[tableKey] = table[tableKey].filter((name) => id !== name.id);
+            return table});
     }
 
  
@@ -44,10 +59,8 @@ function Table({tableKey, nameList, setNameList, tableData, allTables, setAllTab
             </div>
             
             <div className="peopleName">
-                {console.log("Table Num: ", tableKey + 1)}
                 {tableData.map((name, index) => {
-                    console.log(name);
-                    return<Name key={index} id={name.id} name={name.name} />
+                    return<SelectedName key={index} id={name.id} name={name.name} removeFromTable={removeFromTable} />
                 })}
             </div>
         </div>
