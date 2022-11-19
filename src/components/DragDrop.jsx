@@ -5,36 +5,126 @@ import Table from './Table';
 import AddTable from './AddTable';
 import ExportData from './ExportData';
 
-let allNames = [{ id: 0, name: "Chrismal Panditharatne", seated: false},
-{ id: 1, name: "Priyanka Panditharatne", seated: false},
-{ id: 2, name: "Chrischale Panditharatne", seated: false},
-{ id: 3, name: "Kalum Panditharatne", seated: false},
-{ id: 4, name: "Malka Panditharatne", seated: false},
-{ id: 5, name: "Katja Panditharatne", seated: false},
-{ id: 6, name: "Kaaya Panditharatne", seated: false},
-{ id: 7, name: "Madhusha Panditharatne", seated: false},
-{ id: 8, name: "Damian Fernando", seated: false},
-{ id: 9, name: "Sanduni Fernando", seated: false},
-{ id: 10, name: "Pearl Fonseka", seated: false},
-{ id: 11, name: "Asoka ", seated: false},
-{ id: 12, name: "Preenitha Gopallawa", seated: false},
-{ id: 13, name: "Sampath Siriwardhana", seated: false},
-{ id: 14, name: "Surakshi Siriwardhana", seated: false},
-{ id: 15, name: "Roshan Fernando", seated: false},
-{ id: 16, name: "Ishani Fernando", seated: false},
-{ id: 17, name: "Dilruk Panditharatne", seated: false},
-{ id: 18, name: "Rohini Panditharatne", seated: false},
-{ id: 19, name: "Chandana De Silva", seated: false},
-{ id: 20, name: "Induni De Silva", seated: false},
-{ id: 21, name: "Suranga Fonseka", seated: false},
-{ id: 22, name: "Priyanga Fonseka", seated: false},
-{ id: 23, name: "Himansu Wickramasinghe", seated: false},
-{ id: 24, name: "Sharmein Wickramasinghe", seated: false},
-{ id: 25, name: "Agraja Wickramasinghe", seated: false},
-{ id: 26, name: "Dulya Wickramasinghe", seated: false},
-{ id: 27, name: "Indika Wickramasinghe", seated: false},
-{ id: 28, name: "Susila Wickramasinghe", seated: false},
-];
+let allNames = [{
+		"id": 1,
+		"name": "Sasha Wallace"
+	},
+	{
+		"id": 2,
+		"name": "Chantale Stephens"
+	},
+	{
+		"id": 3,
+		"name": "Dieter Sanchez"
+	},
+	{
+		"id": 4,
+		"name": "Rana William"
+	},
+	{
+		"id": 5,
+		"name": "Isadora Cameron"
+	},
+	{
+		"id": 6,
+		"name": "Jaden Cotton"
+	},
+	{
+		"id": 7,
+		"name": "James Ford"
+	},
+	{
+		"id": 8,
+		"name": "Bernard Manning"
+	},
+	{
+		"id": 9,
+		"name": "Micah Martin"
+	},
+	{
+		"id": 10,
+		"name": "Howard Hickman"
+	},
+	{
+		"id": 11,
+		"name": "Avram Morgan"
+	},
+	{
+		"id": 12,
+		"name": "Axel Mendez"
+	},
+	{
+		"id": 13,
+		"name": "Helen Golden"
+	},
+	{
+		"id": 14,
+		"name": "Florence Hansen"
+	},
+	{
+		"id": 15,
+		"name": "Madeline Barnes"
+	},
+	{
+		"id": 16,
+		"name": "Timothy Mcdonald"
+	},
+	{
+		"id": 17,
+		"name": "Jerome Mcgowan"
+	},
+	{
+		"id": 18,
+		"name": "Colin Holman"
+	},
+	{
+		"id": 19,
+		"name": "Ava Salazar"
+	},
+	{
+		"id": 20,
+		"name": "Chantale Madden"
+	},
+	{
+		"id": 21,
+		"name": "Felicia Mendez"
+	},
+	{
+		"id": 22,
+		"name": "Elaine Ware"
+	},
+	{
+		"id": 23,
+		"name": "Addison Joyce"
+	},
+	{
+		"id": 24,
+		"name": "Byron Cortez"
+	},
+	{
+		"id": 25,
+		"name": "Samantha Raymond"
+	},
+	{
+		"id": 26,
+		"name": "Lars Hernandez"
+	},
+	{
+		"id": 27,
+		"name": "Madonna Mosley"
+	},
+	{
+		"id": 28,
+		"name": "Aileen Moran"
+	},
+	{
+		"id": 29,
+		"name": "Shannon Cash"
+	},
+	{
+		"id": 30,
+		"name": "Lara Sloan"
+	}];
 
 function DragDrop() {
 
