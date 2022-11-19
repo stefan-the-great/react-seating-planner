@@ -7,6 +7,12 @@
     display: flex;
     flex-direction: column;
     background-color: rgba(240, 240, 240, 0.5);
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
 }
 
 .innerWrapper {
@@ -29,7 +35,7 @@
 }
 
 .tableName {
-    color: dimgray;
+    color: rgb(100, 100, 100);
 }
 
 .tableName,

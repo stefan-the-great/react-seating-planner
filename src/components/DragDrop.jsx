@@ -5,7 +5,9 @@ import Table from './Table';
 import AddTable from './AddTable';
 import ExportData from './ExportData';
 
-let allNames = [
+let allNames = [{ id: 0, name: "Chrismal Panditharatne", seated: false},
+{ id: 1, name: "Priyanka Panditharatne", seated: false},
+{ id: 2, name: "Chrischale Panditharatne", seated: false},
 { id: 3, name: "Kalum Panditharatne", seated: false},
 { id: 4, name: "Malka Panditharatne", seated: false},
 { id: 5, name: "Katja Panditharatne", seated: false},
@@ -37,9 +39,7 @@ let allNames = [
 function DragDrop() {
 
     const [nameList, setNameList] = useState(allNames);
-    const [allTables, setAllTables] = useState([[{ id: 0, name: "Chrismal Panditharatne", seated: false},
-{ id: 1, name: "Priyanka Panditharatne", seated: false},
-{ id: 2, name: "Chrischale Panditharatne", seated: false}]]);
+    const [allTables, setAllTables] = useState([[]]);
 
 
     

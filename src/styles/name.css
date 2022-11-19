@@ -8,13 +8,11 @@
     white-space: nowrap;
     overflow: hidden;
     text-align: left;
-    /* cursor: grab; */
 }
 
 .nameCard {
     width: 200px;
     height: 20px;
-    /* border: 0.5px solid black; */
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -26,7 +24,15 @@
     box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.5);
     background-color: #f8f8f8;
     position: relative;
+    transition: box-shadow 0.6s;
+    transition: scale 0.2s;
 }
 
+.nameCard:hover {
+    scale: 1.03;
+    box-shadow: 0px 0px 10px 0px dimgray;
+}
 
-/* .removeBtn {} */
+.selected:hover {
+    scale: 1 !important;
+}
