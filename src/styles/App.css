@@ -2,11 +2,7 @@
     display: flex;
     justify-content: left;
     width: 100%;
-    /* background-color: rgb(153, 151, 151); */
     height: 100vh;
-    /* background: linear-gradient(104deg, #3d34edad, #2d3e6738, #1b1270a6); */
-    /* background-color: #ff99ff;
-    background-image: radial-gradient(at 86% 61%, hsla(344, 71%, 76%, 1) 0px, transparent 50%), radial-gradient(at 71% 1%, hsla(38, 71%, 60%, 1) 0px, transparent 50%), radial-gradient(at 21% 85%, hsla(237, 70%, 70%, 1) 0px, transparent 50%), radial-gradient(at 35% 84%, hsla(58, 82%, 66%, 1) 0px, transparent 50%), radial-gradient(at 24% 37%, hsla(155, 73%, 73%, 1) 0px, transparent 50%), radial-gradient(at 4% 32%, hsla(349, 91%, 73%, 1) 0px, transparent 50%), radial-gradient(at 57% 41%, hsla(325, 84%, 72%, 1) 0px, transparent 50%); */
 }
 
 .tables {
@@ -39,10 +35,8 @@
     min-width: 220px;
     width: fit-content;
     height: 90vh;
-    /* border: 0.5px solid rgba(0, 0, 0, 0.1); */
     border-radius: 10px;
     margin: 0px;
-    /* border: 20px solid transparent; */
     padding: 10px;
     background-color: rgba(240, 240, 240, 0.5);
     overflow-y: scroll;

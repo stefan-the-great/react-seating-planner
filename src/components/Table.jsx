@@ -21,15 +21,6 @@ function Table({tableKey, nameList, setNameList, tableData, allTables, setAllTab
     const addNameToTable = (id) => {    
         // Get person by name.id
         let person = nameList.filter((name) => id === name.id);
-        console.log("Person: ", person.length);
-
-        if (person.length === 0) {
-            // console.log(allTables);
-            person = allTables.filter((table, index) => (findPerson(table, index, id)));
-            person = person[1];
-            console.log("Person allTableFilter: ", person[0]);
-        }
-
 
         // Removing person from nameList state and adding it to allTables 
         setNameList(list => list.filter((name) => id !== name.id));
@@ -39,14 +30,20 @@ function Table({tableKey, nameList, setNameList, tableData, allTables, setAllTab
         });
     }
 
-    const findPerson = (table, index, id) => {
-        console.log("--- findPerson ---");
-        console.log(index);
-        console.log(id);
-        console.log(table);
-        let foundPerson = table.filter((name) => id === name.id);
-        return foundPerson;
-    };
+    // removeFromTable is used in SelectedName component 
+    const removeFromTable = (id) => {
+        // Step 01
+        // Find the person from the table
+        let person = allTables[tableKey].filter((name) => id === name.id);
+        
+        // Add person to nameList (list on the screen left)
+        setNameList(list => [...list, person[0]]);
+        
+        // Find and Remove the person from the current table
+        setAllTables(table => {
+            table[tableKey] = table[tableKey].filter((name) => id !== name.id);
+            return table});
+    }
 
  
   return (
@@ -62,10 +59,8 @@ function Table({tableKey, nameList, setNameList, tableData, allTables, setAllTab
             </div>
             
             <div className="peopleName">
-                {console.log("Table Num: ", tableKey + 1)}
-                {console.log(tableData)}
                 {tableData.map((name, index) => {
-                    return<SelectedName key={index} id={name.id} name={name.name} />
+                    return<SelectedName key={index} id={name.id} name={name.name} removeFromTable={removeFromTable} />
                 })}
             </div>
         </div>
