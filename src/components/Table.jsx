@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDrop } from "react-dnd";
 // import Name from './Name';
 import "../styles/table.css"
 import SelectedName from './SelectedName';
 
-const tableSize = 10;
-
 function Table({tableKey, nameList, setNameList, tableData, allTables, setAllTables}) {
 
+    const [tableSize, setTableSize] = useState(10);
     const tableLength = tableData.length
     
     const [{ isOver }, drop] = useDrop(() => ({
@@ -37,7 +36,7 @@ function Table({tableKey, nameList, setNameList, tableData, allTables, setAllTab
         let person = allTables[tableKey].filter((name) => id === name.id);
         
         // Add person to nameList (list on the screen left)
-        setNameList(list => [...list, person[0]]);
+        setNameList(list => [person[0], ...list]);
         
         // Find and Remove the person from the current table
         setAllTables(table => {
