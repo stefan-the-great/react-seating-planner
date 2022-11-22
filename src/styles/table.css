@@ -1,6 +1,6 @@
 .table {
     width: 240px;
-    max-height: 60vh;
+    /* max-height: 85vh; */
     min-height: 60vh;
     border-radius: 10px;
     /* margin: 10px; */
@@ -45,7 +45,7 @@
 }
 
 .peopleName {
-    height: 54vh;
+    /* height: 54vh; */
     overflow-y: scroll;
     scroll-behavior: smooth;
 }
