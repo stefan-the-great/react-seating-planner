@@ -3,9 +3,11 @@ import { useDrop } from "react-dnd";
 // import Name from './Name';
 import "../styles/table.css"
 import SelectedName from './SelectedName';
+import TableSettings from './TableSettings';
 
 function Table({tableKey, nameList, setNameList, tableData, allTables, setAllTables}) {
 
+    const [tableName, setTableName] = useState(tableKey);
     const [tableSize, setTableSize] = useState(10);
     const tableLength = tableData.length
     
@@ -50,12 +52,19 @@ function Table({tableKey, nameList, setNameList, tableData, allTables, setAllTab
         ref={tableLength < tableSize ? drop : null}
         style={{boxShadow: isOver ? "inset 0px 0px 5px 1px rgba(255, 255, 255, 1)" : "0px 0px 0px rgba(0, 0, 0, 0)"}}>
         <div className="innerWrapper">
-            <div className="tableDetails">
+            {/* <div className="tableDetails">
                 <div className="tableName">Table {tableKey + 1}</div>
                 <div className="peopleNum" style={{color: tableLength >= tableSize ? "red" :"limegreen"}}>
                     {tableLength}
                 </div>
-            </div>
+            </div> */}
+            <TableSettings tableName={tableName} 
+                setTableName={setTableName} 
+                tableSize={tableSize} 
+                setTableSize={setTableSize} 
+                tableLength={tableLength}
+                allTables={allTables}
+                setAllTables={setAllTables} />
             
             <div className="peopleName">
                 {tableData.map((name, index) => {

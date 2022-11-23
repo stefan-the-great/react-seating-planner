@@ -12,48 +12,7 @@ let allNames = peopleData;
 function DragDrop() {
 
     const [nameList, setNameList] = useState(allNames);
-    const [allTables, setAllTables] = useState([[
-    {
-        "id": 0,
-        "name": "Chrismal Panditharatne"
-    },
-    {
-        "id": 1,
-        "name": "Priyanka Panditharatne"
-    },
-    {
-        "id": 2,
-        "name": "Chrischale Panditharatne"
-    },
-    {
-        "id": 3,
-        "name": "Kalum Panditharatne"
-    },
-    {
-        "id": 4,
-        "name": "Malka Panditharatne"
-    },
-    {
-        "id": 5,
-        "name": "Katja Panditharatne"
-    },
-    {
-        "id": 6,
-        "name": "Kaaya Panditharatne"
-    },
-    {
-        "id": 7,
-        "name": "Madhusha Panditharatne"
-    },
-    {
-        "id": 8,
-        "name": "Damian Fernando"
-    },
-    {
-        "id": 9,
-        "name": "Sanduni Fernando"
-    }
-]]);
+    const [allTables, setAllTables] = useState([]);
 
 
   return (
