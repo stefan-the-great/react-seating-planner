@@ -1,0 +1,45 @@
+input {
+    width: 30px;
+    background: transparent;
+    outline: none;
+    border: none;
+    font: inherit;
+}
+
+.modalWrapper {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.tableSettingModal {
+    font: inherit;
+    color: #424242;
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    top: 0;
+    left: 0;
+    /* transform: translate(5%, 5%); */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* flex-direction: column; */
+    border-radius: 10px;
+    background-color: rgba(240, 240, 240, 0.5);
+    backdrop-filter: blur(5px);
+    /* padding: 10px; */
+    z-index: 1;
+}
+
+.tableSettingModal input {
+    width: 30px;
+}
+
+.peopleNum {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    padding: 1px 5px;
+    text-align: center;
+    box-shadow: inset 0px 0px 2px 0px rgba(105, 87, 173, 0.3);
+}

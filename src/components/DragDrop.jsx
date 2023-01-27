@@ -1,67 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Name from './Name';
 import "../styles/App.css";
 import Table from './Table';
 import AddTable from './AddTable';
 import ExportData from './ExportData';
+// import CSV from '../GuestList.csv'
 
-const peopleData = require("../PeopleDataExtended.json");
+const peopleData = require("../random-dataset.json");
+const seatedPeople = require("../SeatedPeople.json");
 
-let allNames = peopleData;
 
 function DragDrop() {
 
-    const [nameList, setNameList] = useState(allNames);
-    const [allTables, setAllTables] = useState([[
-    {
-        "id": 0,
-        "name": "Chrismal Panditharatne"
-    },
-    {
-        "id": 1,
-        "name": "Priyanka Panditharatne"
-    },
-    {
-        "id": 2,
-        "name": "Chrischale Panditharatne"
-    },
-    {
-        "id": 3,
-        "name": "Kalum Panditharatne"
-    },
-    {
-        "id": 4,
-        "name": "Malka Panditharatne"
-    },
-    {
-        "id": 5,
-        "name": "Katja Panditharatne"
-    },
-    {
-        "id": 6,
-        "name": "Kaaya Panditharatne"
-    },
-    {
-        "id": 7,
-        "name": "Madhusha Panditharatne"
-    },
-    {
-        "id": 8,
-        "name": "Damian Fernando"
-    },
-    {
-        "id": 9,
-        "name": "Sanduni Fernando"
-    }
-]]);
+    const [nameList, setNameList] = useState(peopleData);
+    const [allTables, setAllTables] = useState(seatedPeople);
 
+    useEffect(() => {
+        allTables.forEach(table => {
+            table.forEach(person => {
+                setNameList(list => list.filter((name) => name.id !== person.id))
+            })            
+        });     
+      
+    }, [])
 
   return (
     <div className="outerWrapper">
         <div className="nameList">
             <div className="names">
                 {nameList.map((name) => {
-                    return <Name key={name.id} id={name.id} name={name.name} />
+                    if (name.rsvp !== "Declined") {
+                        return <Name key={name.id} id={name.id} name={name.name + " " + name.surname} />
+                    }
+                    else{
+                        return ""
+                    }
                 })}
             </div>
         </div>
