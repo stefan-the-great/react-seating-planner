@@ -35,17 +35,17 @@ function TableSettings({tableName, setTableName, tableSize, setTableSize, tableL
         <div className="tableName">Table {" "}
             <input type="number"
             id="tableNameInp" 
-            value={tableName}
+            value={tableName + 1}
             onChange={(e) => {updateTableOrder(e, tableName)}} 
             min={1} />
         </div>
         <input type="number" 
             className="peopleNum" 
-            value={tableSize} 
+            value={tableLength} 
             onChange={(e) => {
                 setTableSize(e.target.value)
             }}
-            style={{color: tableLength >= tableSize ? "red" :"limegreen"}} 
+            style={{color: tableLength >= tableSize ? "red" :"dimgrey"}} 
             min={1} />
     </div>
         {/* <div className="tableSettingModal">

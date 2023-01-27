@@ -68,7 +68,12 @@ function Table({tableKey, nameList, setNameList, tableData, allTables, setAllTab
             
             <div className="peopleName">
                 {tableData.map((name, index) => {
-                    return<SelectedName key={index} id={name.id} name={name.name} removeFromTable={removeFromTable} />
+                    if (name.rsvp !== "Declined") {
+                        return<SelectedName key={index} id={name.id} name={name.name + " " + name.surname} removeFromTable={removeFromTable} />
+                        
+                    } else {
+                        return "";
+                    }
                 })}
             </div>
         </div>
