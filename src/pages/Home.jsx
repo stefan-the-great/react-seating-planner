@@ -13,18 +13,7 @@ const COLUMNS = [
     {id: 3, title: 3},
 ]
 
-const INITTASKS = [
-    {
-        id: 1,
-        name: "Stefan Fernando",
-        status: 0
-    },
-    {
-        id: 2,
-        name: "Josh",
-        status: 0
-    },
-]
+const INITTASKS = []
 
 function Home() {
     const [tasks, setTasks] = useState(INITTASKS)
