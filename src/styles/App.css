@@ -40,6 +40,14 @@
     padding: 10px;
     background-color: rgba(240, 240, 240, 0.5);
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* justify-content: center; */
+}
+
+.nameListWrapper {
+    overflow-y: auto;
 }
 
 .addTableBtn {
@@ -58,6 +66,36 @@
     cursor: default;
 }
 
+.nameInput {
+    height: 25px;
+    padding: 7px 10px;
+    width: 80%;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    flex: 3;
+
+    /* background-color: black; */
+}
+
+.inputWrapper {
+    display: flex;
+    gap: 15px;
+}
+
+.submitBtn {
+    background-color: #2da855;
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+    width: fit-content;
+    height: 25px;
+    padding: 7px 12px;
+    display: flex;
+    align-items: center;justify-content: center;
+    flex: 1;
+    cursor: pointer;
+}
 
 /* SCROLL BAR STYLES */
 
