@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 import DragDrop from "./components/DragDrop.jsx"
-import Home from "./components/pages/Home.jsx";
+import Home from "./pages/Home.jsx";
 
 
 function App() {
