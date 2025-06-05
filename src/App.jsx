@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import DragDrop from "./components/DragDrop.jsx"
 import Home from "./pages/Home.jsx";
+import AddNameList from "./pages/AddNameList/AddNameList.jsx";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path={"/"} element={<Home/>}></Route>
+        <Route path={"add-names"} element={<AddNameList/>}></Route>
 
       </Routes>
       

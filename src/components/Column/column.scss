@@ -6,6 +6,11 @@
     color: white;
     background: #1f1f1f;
     padding: 5px 10px;
+
+    .taskContainer {
+        height: 80%;
+        overflow-y: auto;// overflow-x: hidden;
+    }
 }
 
 .add {
