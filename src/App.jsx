@@ -1,17 +1,28 @@
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+
 import DragDrop from "./components/DragDrop.jsx"
+import Home from "./components/pages/Home.jsx";
 
 
 function App() {
   return (
     <div className="App">
       {/* <Switch> */}
-        {/* <Route path={"/"}></Route> */}
-        <DndProvider backend={HTML5Backend}>
+      <BrowserRouter>
+      <Routes>
+        <Route path={"/"} element={<Home/>}></Route>
+
+      </Routes>
+      
+      </BrowserRouter>
+
+        {/* <DndProvider backend={HTML5Backend}>
             <DragDrop />        
-        </DndProvider>
+        </DndProvider> */}
       {/* </Switch> */}
     </div>
 
