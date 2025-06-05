@@ -1,0 +1,23 @@
+.column {
+    // margin: 4px;
+    width: 250px;
+    height: 500px;
+    border-radius: 10px;
+    color: white;
+    background: #1f1f1f;
+    padding: 5px 10px;
+
+    .taskContainer {
+        height: 80%;
+        overflow-y: auto;// overflow-x: hidden;
+    }
+}
+
+.add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 25px;
+    cursor: pointer;
+}
