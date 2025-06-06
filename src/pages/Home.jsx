@@ -5,7 +5,9 @@ import AddColumn from '../components/Column/AddColumn'
 import { DndContext, useDroppable } from '@dnd-kit/core'
 import TaskCard from '../components/TaskCard/TaskCard'
 import ConvertToCSV from '../components/utils/ConvertToCSV'
-import exportFromJSON from 'export-from-json'
+import SortNamesAsc from '../components/utils/SortNamesAsc'
+import ExportToJSON from '../components/utils/ExportToJSON'
+import ExportToCSV from '../components/utils/ExportToCSV'
 
 const COLUMNS = [
     {id: 1, title: 1}
@@ -47,37 +49,23 @@ function Home() {
         console.log(nameInput);
     
         setTasks((nameList) => ([...nameList, {id: newIndex, name: nameInput, status: 0}]));
-
         setNewIndex(newIndex+1);
 
     }
 
     const handleGuestListExport = () => {
         // ! EXPORT GUEST LIST HERE
-        const jsonData = JSON.stringify(tasks, null, 2); // Use 2 for pretty formatting
-        const blob = new Blob([jsonData], { type: "application/json" });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = "Guest-List.json";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        URL.revokeObjectURL(url);
+        ExportToJSON(tasks, "Guest List")
     }
 
     const handleTableListExport = () => {
-        // ! EXPORT GUEST LIST HERE
-        const jsonData = JSON.stringify(columns, null, 2); // Use 2 for pretty formatting
-        const blob = new Blob([jsonData], { type: "application/json" });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = "Table-List.json";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        URL.revokeObjectURL(url);
+        // ! EXPORT TABLE LIST HERE
+        ExportToJSON(columns, "Table List")
+    }
+
+    const handleSortAndDownload = () => {
+        setTasks(SortNamesAsc(tasks))
+        ExportToCSV(ConvertToCSV(tasks), "Guest List");
     }
 
     useEffect(() => {
@@ -95,6 +83,7 @@ function Home() {
         <div className="exportBtnArea">
             <div className="exportBtn" onClick={handleGuestListExport}>Export Guest List</div>
             <div className="exportBtn" onClick={handleTableListExport}>Export Table List</div>
+            <div className="exportBtn" onClick={handleSortAndDownload}>Download</div>
         </div>
         <div className="colContainer">
             <DndContext onDragEnd={handleDragEnd}>
