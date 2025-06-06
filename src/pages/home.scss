@@ -2,6 +2,7 @@
     min-height: 100vh;
     width: 100vw;
     background-color: #131313;
+    position: relative;
 
     a {
         text-decoration: none;
@@ -11,8 +12,27 @@
         font-weight: 500;
     }
 
+    .exportBtnArea {
+        left: 20px;
+        top: 10px;
+        position: absolute;
+        display: flex;
+        gap: 15px;
+
+        .exportBtn {
+            color: white;
+            padding: 7px 10px;
+            // margin: 10px;
+            border-radius: 10px;
+            background-color: green;
+            width: max-content;
+            cursor: pointer;
+        }
+    }
+
     .colContainer {
         padding: 20px;
+        padding-top: 50px;
         display: grid;
         grid-template-columns: repeat(auto-fit, 260px);
         overflow-x: hidden;
@@ -26,6 +46,7 @@
                 justify-content: flex-start;
                 gap: 5px;
                 margin-bottom: 10px;
+                width: 100%;
 
                 .nameInput {
                     padding: 5px 7px;

@@ -7,6 +7,36 @@
     background: #1f1f1f;
     padding: 5px 10px;
 
+    .colHeader {
+        display: flex;
+        justify-content: flex-start;
+        gap: 15px;
+
+        align-items: center;
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 10px;
+
+        .colNameInput {
+            width: fit-content;
+            max-width: 100px;
+            // padding: 10px;
+            background-color: transparent;
+            color: white;
+            outline: none;
+            border: none;
+            font-size: 24px;
+        }
+
+        .colNameSubmitBtn {
+            background-color: green;
+            font-size: 14px;
+            border-radius: 10px;
+            padding: 5px;
+            cursor: pointer;
+        }
+    }
+
     .taskContainer {
         height: 80%;
         // overflow-y: auto;// overflow-x: hidden;
