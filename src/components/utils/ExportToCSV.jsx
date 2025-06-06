@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function ExportToCSV(csv, filename) {
     const blob = new Blob([csv], { type: 'text/csv' });
     const url = URL.createObjectURL(blob);
