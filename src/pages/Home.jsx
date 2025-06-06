@@ -69,7 +69,6 @@ function Home() {
 
     useEffect(() => {
       console.log(tasks);
-      
     }, [tasks])
     
     
