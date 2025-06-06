@@ -1,29 +1,16 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './home.scss'
 import Column from '../components/Column/Column'
 import AddColumn from '../components/Column/AddColumn'
-import { DndContext, DragEndEvent, useDroppable } from '@dnd-kit/core'
-import NameList from '../components/NameList/NameList'
-import FormatNameInput from '../components/utils/FormatNameInput'
+import { DndContext, useDroppable } from '@dnd-kit/core'
 import TaskCard from '../components/TaskCard/TaskCard'
 
 const COLUMNS = [
-    {id: 1, title: 1},
-    {id: 2, title: 2},
-    {id: 3, title: 3},
+    {id: 1, title: 1}
 ]
 
 const INITTASKS = [
-    {
-        id: 1,
-        name: "Stefan Fernando",
-        status: 0
-    },
-    {
-        id: 2,
-        name: "Josh",
-        status: 0
-    },
+    
 ]
 
 function Home() {
@@ -65,6 +52,11 @@ function Home() {
 
     }
 
+    useEffect(() => {
+      console.log(tasks);
+      
+    }, [tasks])
+    
     
     const { setNodeRef } = useDroppable({
     id: 0,
@@ -76,23 +68,23 @@ function Home() {
             <DndContext onDragEnd={handleDragEnd}>
                 {/* <NameList key={0} column={{id: 0, title: 0}} tasks={tasks.filter((task) => task.status === 0)} nameListLength={tasks.length} setTasks={setTasks} /> */}
 
-                <div className='column' >
-                <h2 className='columnTitle'>
-                    {`Name List`}
-                </h2>
-                <div className="inputWrapper">
-                    <input type="text" className="nameInput" value={nameInput} onChange={handleNameInputChange} id="nameInput" />
-                    <div className="submitBtn" onClick={handleNameInputSubmit}>
-                        Add
+                <div className='column' id='nameList' ref={setNodeRef}>
+                    <h2 className='columnTitle'>
+                        {`Name List`}
+                    </h2>
+                    <div className="inputWrapper">
+                        <input type="text" className="nameInput" value={nameInput} onChange={handleNameInputChange} id="nameInput" />
+                        <div className="submitBtn" onClick={handleNameInputSubmit}>
+                            Add
+                        </div>
+                    </div>
+                    <div className="taskContainer">
+                    <hr />
+                        {tasks.filter((task) => task.status === 0).map(task => {
+                        return <TaskCard key={task.id} task={task}/>;
+                        })}
                     </div>
                 </div>
-                <div className="taskContainer">
-                <hr />
-                    {tasks.filter((task) => task.status === 0).map(task => {
-                    return <TaskCard key={task.id} task={task}/>;
-                    })}
-                </div>
-            </div>
 
 
                 {columns.map((column) => {

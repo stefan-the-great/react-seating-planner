@@ -3,7 +3,6 @@ import TaskCard from '../TaskCard/TaskCard';
 import './column.scss'
 
 function Column({column, tasks}) {
-  console.log(column);
   const { setNodeRef } = useDroppable({
     id: column["id"],
   })
