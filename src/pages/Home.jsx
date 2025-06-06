@@ -11,9 +11,7 @@ const COLUMNS = [
     {id: 1, title: 1}
 ]
 
-const INITTASKS = [
-    
-]
+const INITTASKS = []
 
 function Home() {
     const [tasks, setTasks] = useState(INITTASKS)
