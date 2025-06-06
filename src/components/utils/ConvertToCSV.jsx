@@ -36,7 +36,7 @@ export default function ConvertToCSV(tasks) {
     var newTasks = [];
 
     tasks.forEach(task => {
-        task.letter = task.name.split(' ')[1][0].toUpperCase();
+        // task.letter = task.name.split(' ')[1][0].toUpperCase();
         var temp = {
             Letter: task.letter,
             Name: task.name,

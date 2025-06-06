@@ -46,11 +46,10 @@ function Home() {
     }
 
     const handleNameInputSubmit = () => {
-        console.log(nameInput);
-    
-        setTasks((nameList) => ([...nameList, {id: newIndex, name: nameInput, status: 0}]));
-        setNewIndex(newIndex+1);
-
+        if (nameInput) {
+            setTasks((nameList) => ([...nameList, {id: newIndex, name: nameInput, status: 0}]));
+            setNewIndex(newIndex+1);
+        }
     }
 
     const handleGuestListExport = () => {
